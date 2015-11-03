@@ -12,20 +12,31 @@ This application definitely needs better session management and local_storage/co
 This database hs four major tables.
 
 * users
+
 Attributes: id(pk), username
+
 This table stores username and unique user id.
 
+
 * questions
+
 Attributes: id (pk),question, score, level int NOT NULL,is_deleted
+
 This tables stored question's unique id, the question, it's level, it's score and if it is deleted.
 The is_deleted bit helps to check if the question has been deleted by the user. So we basically do a soft delete here.
 
+
 * answers
+
 Attributes: id(pk), question_id(fk to questions), answer, is_correct
+
 This table stores the multiple choice answers for each question, their ids, the question's id and if the answer is the correct answer or not.
 
+
 * user_answers
+
 Attributes: user_id(fk to users), question_id(fk to questions), answer_id(fk to answers), is_correct
+
 This table stores the user's answers for that current session, user's id, and if the answer is correct or not.
 
 # Setting up the application and running it
@@ -34,6 +45,7 @@ Setup Database:
 
 	mysql -u {user} -p{password} < {app_root}/lib/quiz.sql
 
+Change the database configuration in conf/config.php file
 
 Starting application on local php server (port 8080)
 
