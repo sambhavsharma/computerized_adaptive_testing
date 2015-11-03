@@ -15,7 +15,7 @@ This application definitely needs better session management and local_storage/co
 * Timer implementation.
 
 # Database Architecture
-This database hs four major tables.
+The database has four tables.
 
 * users
 
