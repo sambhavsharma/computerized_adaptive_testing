@@ -8,6 +8,8 @@ The score also helps in overall scoring. A simple formula like sigma of (level*s
 
 This application definitely needs better session management and local_storage/cookie usage. Other basic features which this application lacks are:
 
+* Giving a complete feedback at the result page with all question and their correct answers, and whether the user's answer was correct or incorrect.
+
 * Allowing the user to navigate back to the previous question.
 
 * Showing a summary of all answers to the user and allowing him to make any changes before submitting the answers.

@@ -8,9 +8,8 @@ require 'header.php';
 	
 	$result = mysql_query($sql);
 
-	$num_correct_answers = mysql_fetch_array($result)[0][0];
+	$num_correct_answers = mysql_result($result,0);
 
-	mysql_query($sql);
 ?>
 
 <div class="col-md-3">
