@@ -7,9 +7,12 @@ Next if the competence level becomes greater than the current level, because of 
 The score also helps in overall scoring. A simple formula like sigma of (level*score) can be applied to calculate the final overall score of the user. I have not implemented any login for this application but we do ask for a username, which helps us identify the user uniquely for storing his/her answers in the database. Though I delete the users' answers whenever he logs off. This can/should be changed depending on the required behavior of the application.
 
 This application definitely needs better session management and local_storage/cookie usage. Other basic features which this application lacks are:
-1. Allowing the user to navigate back to the previous question.
-2. Showing a summary of all answers to the user and allowing him to make any changes before submitting the answers.
-3. Timer implementation.
+
+* Allowing the user to navigate back to the previous question.
+
+* Showing a summary of all answers to the user and allowing him to make any changes before submitting the answers.
+
+* Timer implementation.
 
 # Database Architecture
 This database hs four major tables.
