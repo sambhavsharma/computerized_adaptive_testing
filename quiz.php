@@ -37,19 +37,16 @@ if(isset($_POST['submit'])){
    	else{
    		$competency = $competency - (1 - $_SESSION["previous_question_score"]);
    		$is_correct = 0;
-   	}
-
-   	if($competency < 1)
-		$competency = 1;  		
+   	}		
 
 	# Adding the previous question's answer to the database
-   	$sql="INSERT INTO user_answers VALUES ($_SESSION[user_id],$_SESSION[previous_question_id],$answer_id,$selected_answer)";
+   	$sql="INSERT INTO user_answers VALUES ($_SESSION[user_id],$_SESSION[previous_question_id],$answer_id,$is_correct)";
 
 	$insert=mysql_query($sql);
 
-   	$_SESSION["competency"] = $competency;
-
-	if($competency < 2)
+	if($competency < 1)
+		$competency = 1;  
+	else if($competency < 2)
 		$level = 1;
 	else if($competency < 3)
 		$level = 2;
@@ -61,21 +58,21 @@ if(isset($_POST['submit'])){
 	# Starting a new quiz;
 
 	# Calculating total number of questions
-	$result=mysql_query("SELECT count(*) as total from questions where is_deleted = 0;");
+	$result=mysql_query("SELECT count(*) as total from questions where is_deleted = 0");
 	$data=mysql_fetch_assoc($result);
 	$num_of_questions = $data['total'];
 
 	$available_ids = range(1, $num_of_questions);
 
-	$competency = 1;
-
-	$_SESSION["competency"] = $competency;
+	$competency = $level = 1;
 
 }	
+	$_SESSION["competency"] = $competency;
+
 	$available_ids_list = implode( ', ', $available_ids);
 
 	# Randomly selecting questions for the calculated level
-	$sql = "SELECT * FROM questions WHERE id IN ($available_ids_list) AND level = 1 AND is_deleted = 0 ORDER BY rand()";
+	$sql = "SELECT * FROM questions WHERE id IN ($available_ids_list) AND level = $level AND is_deleted = 0 ORDER BY rand()";
 
 	$result = mysql_query($sql);
 

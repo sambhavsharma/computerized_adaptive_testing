@@ -1,5 +1,7 @@
 <?php
 
+require 'conf/config.php';
+
 session_start();
 
 # Clearing user answers, we can change this part and develop another logic
