@@ -45,8 +45,9 @@ if(isset($_POST['submit'])){
 	$insert=mysql_query($sql);
 
 	if($competency < 1)
-		$competency = 1;  
-	else if($competency < 2)
+		$competency = 1;
+
+	if($competency < 2)
 		$level = 1;
 	else if($competency < 3)
 		$level = 2;
