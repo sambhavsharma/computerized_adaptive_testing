@@ -61,7 +61,7 @@ if(isset($_POST['submit'])){
 	# Starting a new quiz;
 
 	# Calculating total number of questions
-	$result=mysql_query("SELECT count(*) as total from questions");
+	$result=mysql_query("SELECT count(*) as total from questions where is_deleted = 0;");
 	$data=mysql_fetch_assoc($result);
 	$num_of_questions = $data['total'];
 
