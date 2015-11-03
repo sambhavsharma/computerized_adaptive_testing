@@ -1,0 +1,133 @@
+CREATE DATABASE IF NOT EXISTS quiz;
+
+Use quiz;
+
+CREATE TABLE IF NOT EXISTS users (
+	id int(11) NOT NULL AUTO_INCREMENT,
+ 	username text NOT NULL,
+  	PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS questions (
+	id int(11) NOT NULL AUTO_INCREMENT,
+	question text NOT NULL,
+	score decimal(2,1) NOT NULL,
+	level int NOT NULL,
+	is_deleted bit NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS answers (
+	id int(11) NOT NULL AUTO_INCREMENT,
+	question_id int(11) NOT NULL,
+	answer varchar(255) NOT NULL,
+	is_correct bit NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (question_id) 
+		REFERENCES questions(id)
+);
+
+CREATE TABLE IF NOT EXISTS user_answers (
+	user_id int(11) NOT NULL,
+	question_id int(11) NOT NULL,
+	answer_id int(11) NOT NULL,
+	is_correct bit NOT NULL,
+	FOREIGN KEY (user_id) 
+		REFERENCES users(id),
+	FOREIGN KEY (question_id) 
+		REFERENCES questions(id),
+	FOREIGN KEY (answer_id) 
+		REFERENCES answers(id)
+);
+
+INSERT INTO questions VALUES (1,'1 + 1',0.4,1,0);
+INSERT INTO questions VALUES (2,'2 + 2',0.4,1,0);
+INSERT INTO questions VALUES (3,'4 + 8',0.6,1,0);
+INSERT INTO questions VALUES (4,'21 + 12',0.7,1,0);
+INSERT INTO questions VALUES (5,'10 + 20',0.5,1,0);
+INSERT INTO questions VALUES (6,'40 + 80',0.6,1,0);
+INSERT INTO questions VALUES (7,'80 + 120',0.7,1,0);
+INSERT INTO questions VALUES (8,'100 + 12',0.7,1,0);
+
+INSERT INTO questions VALUES (9,'1 * 1',0.4,2,0);
+INSERT INTO questions VALUES (10,'2 * 2',0.4,2,0);
+INSERT INTO questions VALUES (11,'4 * 8',0.6,2,0);
+INSERT INTO questions VALUES (12,'21 * 12',0.7,2,0);
+INSERT INTO questions VALUES (13,'5 * 6',0.4,2,0);
+INSERT INTO questions VALUES (14,'6 * 7',0.4,2,0);
+INSERT INTO questions VALUES (15,'9 * 10',0.5,2,0);
+INSERT INTO questions VALUES (16,'12 * 12',0.6,2,0);
+
+INSERT INTO questions VALUES (17,'2 / 2',0.4,3,0);
+INSERT INTO questions VALUES (18,'4 / 8',0.4,3,0);
+INSERT INTO questions VALUES (19,'81 / 9',0.6,3,0);
+INSERT INTO questions VALUES (20,'144 / 12',0.7,3,0);
+
+
+INSERT INTO answers VALUES (1,1,1,0);
+INSERT INTO answers VALUES (2,1,2,1);
+INSERT INTO answers VALUES (3,2,2,0);
+INSERT INTO answers VALUES (4,2,4,1);
+INSERT INTO answers VALUES (5,3,12,1);
+INSERT INTO answers VALUES (6,3,10,0);
+INSERT INTO answers VALUES (7,4,29,0);
+INSERT INTO answers VALUES (8,4,33,1);
+INSERT INTO answers VALUES (9,5,40,0);
+INSERT INTO answers VALUES (10,5,30,1);
+INSERT INTO answers VALUES (11,6,110,0);
+INSERT INTO answers VALUES (12,6,120,1);
+INSERT INTO answers VALUES (13,7,210,0);
+INSERT INTO answers VALUES (14,7,200,1);
+INSERT INTO answers VALUES (15,8,113,0);
+INSERT INTO answers VALUES (16,8,112,1);
+
+INSERT INTO answers VALUES (17,9,1,1);
+INSERT INTO answers VALUES (18,9,2,0);
+INSERT INTO answers VALUES (19,9,3,0);
+INSERT INTO answers VALUES (20,9,4,0);
+INSERT INTO answers VALUES (21,10,1,0);
+INSERT INTO answers VALUES (22,10,2,0);
+INSERT INTO answers VALUES (23,10,3,0);
+INSERT INTO answers VALUES (24,10,4,1);
+INSERT INTO answers VALUES (25,11,16,0);
+INSERT INTO answers VALUES (26,11,20,0);
+INSERT INTO answers VALUES (27,11,32,1);
+INSERT INTO answers VALUES (28,11,24,0);
+INSERT INTO answers VALUES (29,12,212,0);
+INSERT INTO answers VALUES (30,12,252,1);
+INSERT INTO answers VALUES (31,12,242,0);
+INSERT INTO answers VALUES (32,12,232,0);
+INSERT INTO answers VALUES (33,13,30,1);
+INSERT INTO answers VALUES (34,13,31,0);
+INSERT INTO answers VALUES (35,13,32,0);
+INSERT INTO answers VALUES (36,13,33,0);
+INSERT INTO answers VALUES (37,14,39,0);
+INSERT INTO answers VALUES (38,14,40,0);
+INSERT INTO answers VALUES (39,14,44,0);
+INSERT INTO answers VALUES (40,14,42,1);
+INSERT INTO answers VALUES (41,15,88,0);
+INSERT INTO answers VALUES (42,15,34,0);
+INSERT INTO answers VALUES (43,15,90,1);
+INSERT INTO answers VALUES (44,15,21,0);
+INSERT INTO answers VALUES (45,16,121,0);
+INSERT INTO answers VALUES (46,16,144,1);
+INSERT INTO answers VALUES (47,16,169,0);
+INSERT INTO answers VALUES (48,16,196,0);
+
+
+INSERT INTO answers VALUES (49,17,1,1);
+INSERT INTO answers VALUES (50,17,2,0);
+INSERT INTO answers VALUES (51,17,3,0);
+INSERT INTO answers VALUES (52,17,4,0);
+INSERT INTO answers VALUES (53,18,4,0);
+INSERT INTO answers VALUES (54,18,8,0);
+INSERT INTO answers VALUES (55,18,0.5,1);
+INSERT INTO answers VALUES (56,18,2,0);
+INSERT INTO answers VALUES (57,19,8,0);
+INSERT INTO answers VALUES (58,19,9,1);
+INSERT INTO answers VALUES (59,19,10,0);
+INSERT INTO answers VALUES (60,19,11,0);
+INSERT INTO answers VALUES (61,20,11,0);
+INSERT INTO answers VALUES (62,20,10,0);
+INSERT INTO answers VALUES (63,20,12,1);
+INSERT INTO answers VALUES (64,20,14,0);

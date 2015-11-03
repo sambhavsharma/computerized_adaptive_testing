@@ -1,0 +1,54 @@
+body {
+	background-color: #eee;
+}
+
+.navbar {
+	margin: 10px;
+}
+
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+
+#username {
+	margin-bottom: 20px;
+}
+
+h1{
+	font-size: 28px;
+}
+
+h1 small{
+	margin-left: 10px;
+}
+
+.question-box {
+	margin: 40px;
+}
+
+.radio+.radio {
+  margin-top: 10px;
+}
+
+#answers-group { 
+	padding-left: 10px;
+	margin-bottom: 0px;
+}
+
+#submit-answer {
+	margin-top: 10px;
+}
+
+.panel-heading {
+	height: 40px;
+}
+
+.question {
+	float: left;
+}
+
+.info {
+	float: right;
+}
