@@ -6,6 +6,8 @@ Next if the competence level becomes greater than the current level, because of 
 
 The score also helps in overall scoring. A simple formula like sigma of (level*score) can be applied to calculate the final overall score of the user. I have not implemented any login for this application but we do ask for a username, which helps us identify the user uniquely for storing his/her answers in the database. Though I delete the users' answers whenever he logs off. This can/should be changed depending on the required behavior of the user.
 
+This application definitely needs better session management and local_storage/cookie usage.
+
 
 # Setting up the application and running it
 
